@@ -31,7 +31,7 @@ if (form) {
         body: JSON.stringify(Object.fromEntries(new FormData(form)))
       });
       if (res.ok) {
-        status.textContent = 'Message sent! We'll be in touch shortly.';
+        status.textContent = "Message sent! We'll be in touch shortly.";
         status.className = 'form-status success';
         form.reset();
       } else {
