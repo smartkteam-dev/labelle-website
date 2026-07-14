@@ -437,6 +437,14 @@ h1,h2,h3,h4 { font-family: var(--serif); line-height: 1.2; letter-spacing: -.01e
 /* ── SOCIAL PROOF ── */
 .social-proof { background: var(--espresso); padding: 5rem var(--px); text-align: center; }
 
+/* Mobile close button (injected by app.js) */
+.mobile-close {
+  position: absolute; top: 1.25rem; right: var(--px);
+  background: none; border: none; cursor: pointer;
+  color: var(--espresso); padding: .5rem; line-height: 0;
+}
+.mobile-close svg { width: 22px; height: 22px; stroke: var(--espresso); stroke-width: 2; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1100px) {
   .pillars { grid-template-columns: repeat(2, 1fr); }
@@ -451,19 +459,82 @@ h1,h2,h3,h4 { font-family: var(--serif); line-height: 1.2; letter-spacing: -.01e
   .about-grid { gap: 3rem; }
 }
 @media (max-width: 768px) {
+  /* Nav */
   .nav-links, .nav-cta { display: none; }
   .nav-toggle { display: block; }
+
+  /* Buttons — tighter on mobile */
+  .btn, .btn-outline, .btn-ghost {
+    font-size: .68rem;
+    padding: .78rem 1.75rem;
+  }
+  /* Stacked button rows */
+  .btn-row { flex-direction: column; align-items: stretch; }
+  .btn-row .btn, .btn-row .btn-outline, .btn-row .btn-ghost {
+    width: 100%; justify-content: center;
+  }
+
+  /* Hero */
+  .hero { height: 88vh; padding-bottom: 3rem; }
+  .hero p { font-size: .95rem; margin-bottom: 1.75rem; }
+
+  /* Sections */
+  .section { padding: 3.5rem 0; }
+  .section-sm { padding: 1.75rem 0; }
+
+  /* Pillars 1-col on small screens */
+  .pillars { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  /* Services header — stack */
+  .services-header { flex-direction: column; align-items: flex-start; gap: .75rem; margin-bottom: 2rem; }
+
+  /* Grids */
   .service-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   .about-imgs { display: none; }
   .facial-small-grid { grid-template-columns: 1fr; }
-  .footer-main { grid-template-columns: 1fr; gap: 2rem; padding: 3rem var(--px); }
+  .benefits-grid { grid-template-columns: 1fr; }
+
+  /* About stats — wrap instead of overflow */
+  .about-stats { flex-wrap: wrap; gap: 1.5rem; }
+
+  /* Blog */
   .blog-grid { grid-template-columns: 1fr; }
   .blog-featured { grid-column: span 1; grid-template-columns: 1fr; }
-  .benefits-grid { grid-template-columns: 1fr; }
+  .blog-featured-img { min-height: 14rem; }
+  .blog-featured-body { padding: 1.75rem; }
+  .blog-featured-body h2 { font-size: 1.25rem; }
+
+  /* Insurance bleed */
+  .insurance-bleed { padding: 4.5rem var(--px); }
+
+  /* Banner — stack */
+  .banner { flex-direction: column; gap: .5rem; }
+
+  /* CTA strip */
+  .cta-strip { padding: 3.5rem var(--px); }
+  .cta-strip .btn-row { align-items: center; }
+  .cta-strip .btn-row .btn,
+  .cta-strip .btn-row .btn-outline { max-width: 22rem; }
+
+  /* Map */
+  .map-wrap { height: 18rem; }
+
+  /* Pricing table */
+  .pricing-table-head { padding: .75rem 1rem; }
+  .pricing-table-row { padding: .75rem 1rem; }
+  .pricing-table-row .name,
+  .pricing-table-row .amount { font-size: .82rem; }
+
+  /* Footer */
+  .footer-main { grid-template-columns: 1fr; gap: 2rem; padding: 3rem var(--px); }
+  .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: .5rem; }
+
+  /* Misc */
   .hero-vert { display: none; }
   .about-imgs-inner { grid-template-columns: 1fr; }
   .about-img-2 { margin-top: 0; }
+  .page-layout { padding: 2.5rem 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
