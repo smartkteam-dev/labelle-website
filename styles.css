@@ -104,9 +104,13 @@ h1,h2,h3,h4 { font-family: var(--serif); line-height: 1.2; letter-spacing: -.01e
 .nav-drop { position: relative; }
 .nav-drop > a { cursor: pointer; display: flex; align-items: center; gap: .3rem; }
 .nav-drop-menu {
-  display: none; position: absolute; top: calc(100% + .85rem); left: 50%; transform: translateX(-50%);
+  display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
   background: var(--white); min-width: 14rem; padding: .5rem 0;
   box-shadow: var(--shadow-lg); border: 1px solid var(--pearl);
+}
+/* Invisible bridge so hover isn't lost in the gap between trigger and menu */
+.nav-drop-menu::before {
+  content: ''; position: absolute; top: -1rem; left: 0; right: 0; height: 1rem;
 }
 .nav-drop:hover .nav-drop-menu { display: block; }
 .nav-drop-menu a {
